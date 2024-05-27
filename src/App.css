@@ -1,0 +1,42 @@
+.required_asterisk::after {
+  content: " *";
+  color: rgb(255, 70, 70);
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.invalid-feedback {
+  color: rgb(255, 70, 70);
+}
+
+.is-invalid {
+  background-image: none !important;
+}
+
+.dropdown-toggle::after {
+  content: "";
+  display: none;
+}
+
+.action-remove {
+  padding: 0.2rem;
+  cursor: pointer;
+  border-radius: 3px;
+  padding-left: 0.5rem;
+}
+
+.action-remove:hover {
+  background-color: rgb(255, 70, 70);
+  color: #fff;
+}
+
+.custom-badge {
+  background-color: rgba(32, 207, 125, 0.514);
+  border: 1px solid #22b470;
+  color: #555555;
+  letter-spacing: 0.3px;
+  width: 100%;
+  max-width: 150px;
+}

@@ -1,0 +1,12 @@
+:root {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+
+  --primary-color: #22b470;
+  --secondary-color: #090d28;
+  --grey-color: #f5f5f5;
+}
+
+* {
+  font-family: "Roboto", sans-serif;
+}

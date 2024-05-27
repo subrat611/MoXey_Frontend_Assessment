@@ -1,0 +1,11 @@
+.columnWidthAuto {
+  width: auto;
+}
+
+.columnWidthSm {
+  width: 12%;
+}
+
+.columnWidthmd {
+  width: 20%;
+}
