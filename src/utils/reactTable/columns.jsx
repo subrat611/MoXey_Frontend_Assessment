@@ -78,7 +78,8 @@ export const userListColumns = [
     accessorKey: "actions",
     header: () => <span className="text-uppercase">actions</span>,
     cell: (props) => {
-      const { row } = props;
+      const { row, handleRemoveData } = props;
+
       return (
         <div className="btn-group">
           <button
@@ -91,7 +92,12 @@ export const userListColumns = [
             <i className="bi bi-three-dots-vertical"></i>
           </button>
           <ul className="dropdown-menu p-1">
-            <li className="action-remove">Remove User</li>
+            <li
+              className="action-remove"
+              onClick={() => handleRemoveData(row.original?.userid)}
+            >
+              Remove User
+            </li>
           </ul>
         </div>
       );

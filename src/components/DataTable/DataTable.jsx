@@ -12,10 +12,11 @@ import { useEffect, useState } from "react";
 
 const DataTable = (props) => {
   const { data, columns } = props;
+  const [tableData, setTableData] = useState(data);
   const [columnFilters, setColumnFilters] = useState([]);
 
   const table = useReactTable({
-    data,
+    data: tableData,
     columns,
     onColumnFiltersChange: setColumnFilters,
     getFilteredRowModel: getFilteredRowModel(),
@@ -28,6 +29,10 @@ const DataTable = (props) => {
   useEffect(() => {
     table.getColumn("status")?.setFilterValue("active");
   }, [table]);
+
+  const handleRemoveData = (id) => {
+    setTableData((prevData) => prevData.filter((row) => row.userid !== id));
+  };
 
   return (
     <div className="table-responsive">
@@ -125,6 +130,7 @@ const DataTable = (props) => {
                       <td key={`${cell.id}-${cell.row?.original._id}`}>
                         {flexRender(cell.column.columnDef.cell, {
                           ...cell.getContext(),
+                          handleRemoveData,
                         })}
                       </td>
                     );
