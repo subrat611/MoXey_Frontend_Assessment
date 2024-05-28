@@ -93,3 +93,5 @@ export const addNewUserForm = [
     ],
   },
 ];
+
+export const defaultMessage = "Something went wrong!!";

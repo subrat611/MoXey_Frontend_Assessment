@@ -13,6 +13,8 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { addNewUserFormSchema } from "./utils/formSchemas";
 import DataTable from "./components/DataTable/DataTable";
 import { userListColumns } from "./utils/reactTable/columns";
+import toast, { Toaster } from "react-hot-toast";
+import { defaultMessage } from "./utils";
 
 const data = [
   {
@@ -79,6 +81,7 @@ function App() {
   const onSubmit = (data) => {
     const newData = { ...data, userid: uuidv4() };
     setUserList((prev) => [...prev, newData]);
+    toast.success("User added successfully" || defaultMessage);
     methods.reset();
   };
 
@@ -111,6 +114,17 @@ function App() {
           methods={methods}
         />
       </div>
+
+      <Toaster
+        toastOptions={{
+          success: {
+            style: {
+              background: "#0DC384",
+              color: "#fff",
+            },
+          },
+        }}
+      />
     </div>
   );
 }
