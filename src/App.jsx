@@ -127,6 +127,12 @@ function App() {
               color: "#fff",
             },
           },
+          error: {
+            style: {
+              background: "#ef233c",
+              color: "#fff",
+            },
+          },
         }}
       />
     </div>

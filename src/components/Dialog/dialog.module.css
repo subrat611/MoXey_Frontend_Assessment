@@ -3,11 +3,12 @@
   top: 0;
   right: 0;
   width: 100vw;
-  height: 100vh;
+  min-height: 100vh;
+  height: 100%;
   background-color: rgba(0, 0, 0, 0.5);
   display: flex;
   flex-direction: column;
-  align-items: end;
+  align-items: flex-end;
 }
 
 .dialog_box {
@@ -25,8 +26,10 @@
   position: absolute;
   top: 0;
   left: 0;
-  height: 100vh;
+  bottom: 0;
+  height: 100%;
   width: 100%;
   background-color: rgba(0, 0, 0, 0.5);
-  overflow-x: hidden;
+  overflow-y: auto;
+  z-index: 5;
 }

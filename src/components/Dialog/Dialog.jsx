@@ -5,6 +5,7 @@ import styles from "./dialog.module.css";
 import { useQuery } from "@tanstack/react-query";
 import { getCountriesApi } from "../../utils/reactQuery/apis";
 import { useEffect } from "react";
+import toast from "react-hot-toast";
 
 const Dialog = ({
   isOpen = false,
@@ -20,11 +21,17 @@ const Dialog = ({
     reset,
   } = methods;
 
-  const { data, isRefetching, isLoading, refetch } = useQuery({
+  const { data, isRefetching, isLoading, refetch, error } = useQuery({
     queryKey: ["options"],
     queryFn: getCountriesApi,
     enabled: false,
   });
+
+  useEffect(() => {
+    if (error) {
+      toast.error("Failed to fetch countries");
+    }
+  }, [error]);
 
   useEffect(() => {
     if (isOpen) {
