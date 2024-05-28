@@ -15,6 +15,7 @@
 - `Bootstrap5`
 - `Axios`
 - `React Query`
+- `TanStack Table`
 - `React Hook Form`
 
 ## 📷️ Screenshot
