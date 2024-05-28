@@ -1,6 +1,5 @@
 :root {
-  font-family: "Roboto", sans-serif;
-  font-weight: 400;
+  --font-family: "Poppins", sans-serif;
 
   --primary-color: #22b470;
   --secondary-color: #090d28;
@@ -8,5 +7,29 @@
 }
 
 * {
-  font-family: "Roboto", sans-serif;
+  font-family: var(--font-family);
+}
+
+.btn-success {
+  background-color: var(--primary-color);
+  border: none;
+}
+
+.btn-success:hover {
+  background-color: #1fa366;
+}
+
+.btn-secondary {
+  background-color: var(--grey-color);
+  border: none;
+  color: var(--secondary-color);
+}
+
+.btn-secondary:hover {
+  background-color: #e6e6e6;
+  color: var(--secondary-color);
+}
+
+.text-black {
+  color: var(--secondary-color) !important;
 }

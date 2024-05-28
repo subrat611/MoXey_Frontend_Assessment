@@ -64,6 +64,7 @@ export const addNewUserForm = [
     id: "mobileNumber",
     label: "mobile number",
     isRequired: true,
+    inputType: "tel",
   },
   {
     type: "input",
@@ -81,11 +82,13 @@ export const addNewUserForm = [
         id: "cardLoadLimit",
         label: "card load limit",
         isRequired: true,
+        inputType: "tel",
       },
       {
         id: "paymentLimit",
         label: "payment limit",
         isRequired: true,
+        inputType: "tel",
       },
     ],
   },

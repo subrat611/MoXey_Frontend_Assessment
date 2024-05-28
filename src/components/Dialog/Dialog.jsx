@@ -164,6 +164,7 @@ const Dialog = ({
                   className={`form-control rounded-start-0 ${
                     errors[formField.id] ? "is-invalid" : ""
                   }`}
+                  maxLength={10}
                   id={formField.id}
                   {...register(formField.id)}
                 />
@@ -187,13 +188,15 @@ const Dialog = ({
             {/* ------------ dialog action ------------- */}
             <div className="fw-medium px-3 py-3 border-bottom">
               <i
-                className="bi bi-x-lg fs-5 cursor-pointer"
+                className="bi bi-x-lg fs-5 cursor-pointer text-secondary"
                 onClick={() => {
                   reset();
                   handleDialogClose(false);
                 }}
               ></i>
-              <span className="text-capitalize fs-5 ms-3">add new user</span>
+              <span className="text-capitalize text-secondary fs-5 ms-3">
+                add new user
+              </span>
             </div>
 
             {/* ---------------- Dialog content ----------- */}

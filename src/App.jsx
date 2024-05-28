@@ -70,6 +70,7 @@ function App() {
 
   const onSubmit = (data) => {
     setUserList((prev) => [...prev, data]);
+    methods.reset();
   };
 
   return (
@@ -79,7 +80,7 @@ function App() {
         <h4 className="m-0">Settings</h4>
 
         <div className="d-flex justify-content-between align-items-center mt-3">
-          <h6 className="m-0">Users list</h6>
+          <h6 className="m-0 text-secondary">Users list</h6>
           <button
             type="button"
             className="btn btn-success text-capitalize fw-medium"

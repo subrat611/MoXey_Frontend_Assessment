@@ -5,7 +5,9 @@ const Header = () => {
     <div className="container-fluid py-2 px-3 shadow-sm">
       <div className="row align-items-center">
         <div className="col">
-          <h6 className="m-0">Rudra Transporter - Transporter</h6>
+          <h6 className="m-0 text-secondary-emphasis">
+            Rudra Transporter - Transporter
+          </h6>
         </div>
         <div className="col-2">
           <DateRangePicker />

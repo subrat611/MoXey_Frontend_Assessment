@@ -7,7 +7,7 @@ export const userListColumns = [
       const { row } = props;
 
       return (
-        <span className="badge text-uppercase py-2 px-3 custom-badge">
+        <span className="badge text-uppercase py-2 px-3 custom-badge fw-semibold">
           {row.original?.status}
         </span>
       );
@@ -16,7 +16,7 @@ export const userListColumns = [
   },
   {
     accessorKey: "userid",
-    header: () => <span className="text-uppercase">userid</span>,
+    header: () => <span className="text-uppercase">user id</span>,
     cell: (props) => {
       const { row } = props;
       return <p>{row.original?.userid}</p>;

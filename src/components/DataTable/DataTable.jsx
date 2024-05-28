@@ -30,6 +30,10 @@ const DataTable = (props) => {
     table.getColumn("status")?.setFilterValue("active");
   }, [table]);
 
+  useEffect(() => {
+    setTableData(data);
+  }, [data]);
+
   const handleRemoveData = (id) => {
     setTableData((prevData) => prevData.filter((row) => row.userid !== id));
   };
@@ -41,7 +45,7 @@ const DataTable = (props) => {
           {table.getHeaderGroups().map((headerGroup) => {
             return (
               <tr
-                className="table-active text-center border"
+                className="table-active text-center border border-secondary-subtle"
                 key={headerGroup.id}
               >
                 {headerGroup.headers.map((header) => {
@@ -52,7 +56,7 @@ const DataTable = (props) => {
                     <th
                       scope="col"
                       key={header.id}
-                      className={`py-3 ${styles[columnWidth]}`}
+                      className={`py-3 ${styles[columnWidth]} text-secondary fw-semibold bg-light-subtle`}
                     >
                       {header.isPlaceholder
                         ? null
@@ -66,7 +70,7 @@ const DataTable = (props) => {
               </tr>
             );
           })}
-          <tr className="border">
+          <tr className="border border-secondary-subtle">
             <th className="py-3">
               <select
                 className="form-select text-capitalize text-center"
@@ -124,10 +128,16 @@ const DataTable = (props) => {
           {table.getRowModel().rows?.length > 0 &&
             table.getRowModel().rows.map((row) => {
               return (
-                <tr key={row.id} className="text-center border">
+                <tr
+                  key={row.id}
+                  className="text-center border border-secondary-subtle"
+                >
                   {row.getVisibleCells().map((cell) => {
                     return (
-                      <td key={`${cell.id}-${cell.row?.original._id}`}>
+                      <td
+                        key={`${cell.id}-${cell.row?.original._id}`}
+                        className="text-black"
+                      >
                         {flexRender(cell.column.columnDef.cell, {
                           ...cell.getContext(),
                           handleRemoveData,
