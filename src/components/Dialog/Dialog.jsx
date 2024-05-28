@@ -52,7 +52,7 @@ const Dialog = ({
             </label>
             <select
               id={formField.id}
-              className={`form-select ${
+              className={`form-select text-capitalize ${
                 errors[formField.id] ? "is-invalid" : ""
               }`}
               defaultValue=""
@@ -151,8 +151,11 @@ const Dialog = ({
             </label>
             <div className="row">
               <div className="col-3 pe-0">
-                <select id={formField.id} className="form-select rounded-end-0">
-                  <option value="">{formField.selectDefaultValue}</option>
+                <select
+                  id={formField.id}
+                  className="form-select rounded-end-0 text-capitalize"
+                  {...register("countryCode")}
+                >
                   <option value="966">+966</option>
                   <option value="971">+971</option>
                   <option value="91">+91</option>
@@ -216,7 +219,7 @@ const Dialog = ({
                   </label>
                   <select
                     id="country"
-                    className={`form-select ${
+                    className={`form-select text-capitalize ${
                       errors.country ? "is-invalid" : ""
                     }`}
                     onFocus={handleCountrySelectFieldFocus}
