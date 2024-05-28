@@ -13,7 +13,9 @@
 .dialog_box {
   width: 100%;
   max-width: 600px;
-  height: 100vh;
+  min-height: 100vh;
+  height: 100%;
   overflow-y: auto;
   background: #fff;
+  padding-bottom: 4rem;
 }
