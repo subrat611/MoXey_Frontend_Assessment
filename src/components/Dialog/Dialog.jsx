@@ -201,7 +201,7 @@ const Dialog = ({
     <>
       {isOpen && (
         <div className={styles.container}>
-          <div className={styles.dialog_box}>
+          <div className="position-relative">
             {(isRefetching || isLoading) && (
               <div
                 className={`${styles.loading_overlay} d-flex flex-column align-items-center justify-content-center`}
@@ -213,100 +213,103 @@ const Dialog = ({
               </div>
             )}
 
-            {/* ------------ dialog action ------------- */}
-            <div className="fw-medium px-3 py-3 border-bottom">
-              <i
-                className="bi bi-x-lg fs-5 cursor-pointer text-secondary"
-                onClick={() => {
-                  reset();
-                  handleDialogClose(false);
-                }}
-              ></i>
-              <span className="text-capitalize text-secondary fs-5 ms-3">
-                add new user
-              </span>
+            <div className={styles.dialog_box}>
+              {/* ------------ dialog action ------------- */}
+              <div className="fw-medium px-3 py-3 border-bottom">
+                <i
+                  className="bi bi-x-lg fs-5 cursor-pointer text-secondary"
+                  onClick={() => {
+                    reset();
+                    handleDialogClose(false);
+                  }}
+                ></i>
+                <span className="text-capitalize text-secondary fs-5 ms-3">
+                  add new user
+                </span>
+              </div>
+
+              {/* ---------------- Dialog content ----------- */}
+              <FormProvider {...methods}>
+                <form
+                  className={`mx-3 my-3 ${styles.dialog_form}`}
+                  onSubmit={methods.handleSubmit(handleFormSubmit)}
+                  noValidate
+                >
+                  {/* ----------- Country list field ------------ */}
+                  <div className="mb-3">
+                    <label
+                      htmlFor="country"
+                      className="form-label text-secondary text-uppercase required_asterisk"
+                    >
+                      country
+                    </label>
+                    <select
+                      id="country"
+                      className={`form-select text-capitalize ${
+                        errors.country ? "is-invalid" : ""
+                      }`}
+                      {...register("country")}
+                      defaultValue=""
+                    >
+                      {isRefetching || isLoading ? (
+                        <option value="" selected disabled>
+                          Loading...
+                        </option>
+                      ) : (
+                        <option value="" selected>
+                          select country
+                        </option>
+                      )}
+
+                      {(!isRefetching || !isLoading) &&
+                        countries.length > 1 && (
+                          <>
+                            {countries.map((country, i) => (
+                              <option
+                                value={country.name.common.toLowerCase()}
+                                key={i}
+                              >
+                                {country.name.common}
+                              </option>
+                            ))}
+                          </>
+                        )}
+                    </select>
+                    {errors.country && (
+                      <p className="invalid-feedback text-capitalize">
+                        {errors.country.message}
+                      </p>
+                    )}
+                  </div>
+
+                  {/* ------------ Dynamic fields -------------- */}
+                  {addNewUserForm.map((formField, i) => {
+                    return <div key={i}>{renderFormFields(formField)}</div>;
+                  })}
+
+                  <div className="d-flex align-item-center gap-2">
+                    <button
+                      type="submit"
+                      className="btn btn-success text-capitalize fw-medium"
+                    >
+                      <i className="bi bi-plus-lg"></i>
+                      <span className="ms-1">add user</span>
+                    </button>
+
+                    <button
+                      type="button"
+                      className="btn btn-secondary"
+                      onClick={() => {
+                        reset();
+                        handleDialogClose(false);
+                      }}
+                    >
+                      Cancel
+                    </button>
+                  </div>
+                </form>
+              </FormProvider>
             </div>
-
-            {/* ---------------- Dialog content ----------- */}
-            <FormProvider {...methods}>
-              <form
-                className={`mx-3 my-3 ${styles.dialog_form}`}
-                onSubmit={methods.handleSubmit(handleFormSubmit)}
-                noValidate
-              >
-                {/* ----------- Country list field ------------ */}
-                <div className="mb-3">
-                  <label
-                    htmlFor="country"
-                    className="form-label text-secondary text-uppercase required_asterisk"
-                  >
-                    country
-                  </label>
-                  <select
-                    id="country"
-                    className={`form-select text-capitalize ${
-                      errors.country ? "is-invalid" : ""
-                    }`}
-                    {...register("country")}
-                    defaultValue=""
-                  >
-                    {isRefetching || isLoading ? (
-                      <option value="" selected disabled>
-                        Loading...
-                      </option>
-                    ) : (
-                      <option value="" selected>
-                        select country
-                      </option>
-                    )}
-
-                    {(!isRefetching || !isLoading) && countries.length > 1 && (
-                      <>
-                        {countries.map((country, i) => (
-                          <option
-                            value={country.name.common.toLowerCase()}
-                            key={i}
-                          >
-                            {country.name.common}
-                          </option>
-                        ))}
-                      </>
-                    )}
-                  </select>
-                  {errors.country && (
-                    <p className="invalid-feedback text-capitalize">
-                      {errors.country.message}
-                    </p>
-                  )}
-                </div>
-
-                {/* ------------ Dynamic fields -------------- */}
-                {addNewUserForm.map((formField, i) => {
-                  return <div key={i}>{renderFormFields(formField)}</div>;
-                })}
-
-                <div className="d-flex align-item-center gap-2">
-                  <button
-                    type="submit"
-                    className="btn btn-success text-capitalize fw-medium"
-                  >
-                    <i className="bi bi-plus-lg"></i>
-                    <span className="ms-1">add user</span>
-                  </button>
-
-                  <button
-                    type="button"
-                    className="btn btn-secondary"
-                    onClick={() => {
-                      reset();
-                      handleDialogClose(false);
-                    }}
-                  >
-                    Cancel
-                  </button>
-                </div>
-              </form>
-            </FormProvider>
           </div>
         </div>
       )}
