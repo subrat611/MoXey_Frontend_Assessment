@@ -4,15 +4,16 @@ import { addNewUserForm } from "../../utils";
 import styles from "./dialog.module.css";
 import { useQuery } from "@tanstack/react-query";
 import { getCountriesApi } from "../../utils/reactQuery/apis";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 
 const Dialog = ({
   isOpen = false,
   handleDialogClose = () => {},
   methods,
+  countries,
+  setCountries,
   handleFormSubmit,
 }) => {
-  const [countries, setCountries] = useState([]);
   const {
     register,
     formState: { errors },
@@ -26,16 +27,18 @@ const Dialog = ({
   });
 
   useEffect(() => {
+    if (isOpen) {
+      if (countries.length <= 0) {
+        refetch();
+      }
+    }
+  }, [isOpen, countries]);
+
+  useEffect(() => {
     if (data?.data) {
       setCountries(data.data);
     }
   }, [data]);
-
-  const handleCountrySelectFieldFocus = () => {
-    if (countries.length <= 0) {
-      refetch();
-    }
-  };
 
   const renderFormFields = (formField) => {
     switch (formField.type) {
@@ -192,6 +195,17 @@ const Dialog = ({
       {isOpen && (
         <div className={styles.container}>
           <div className={styles.dialog_box}>
+            {(isRefetching || isLoading) && (
+              <div
+                className={`${styles.loading_overlay} d-flex flex-column align-items-center justify-content-center`}
+              >
+                <div className="spinner-border text-light" role="status">
+                  <span className="visually-hidden">Loading...</span>
+                </div>
+                <p className="text-light">Fetching countries...</p>
+              </div>
+            )}
+
             {/* ------------ dialog action ------------- */}
             <div className="fw-medium px-3 py-3 border-bottom">
               <i
@@ -226,7 +240,6 @@ const Dialog = ({
                     className={`form-select text-capitalize ${
                       errors.country ? "is-invalid" : ""
                     }`}
-                    onFocus={handleCountrySelectFieldFocus}
                     {...register("country")}
                     defaultValue=""
                   >

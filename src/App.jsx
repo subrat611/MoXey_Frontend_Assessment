@@ -70,6 +70,8 @@ const data = [
 function App() {
   const [userList, setUserList] = useState(data);
   const [addUserDialogOpen, setAddUserDialogOpen] = useState(false);
+  const [countries, setCountries] = useState([]);
+
   const methods = useForm({
     resolver: yupResolver(addNewUserFormSchema),
     defaultValues: {
@@ -112,6 +114,8 @@ function App() {
           handleDialogClose={setAddUserDialogOpen}
           handleFormSubmit={onSubmit}
           methods={methods}
+          countries={countries}
+          setCountries={setCountries}
         />
       </div>
 
