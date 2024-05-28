@@ -31,7 +31,7 @@ const data = [
     email: "janesmith@example.com",
   },
   {
-    status: "Pending",
+    status: "Active",
     userid: "U54321",
     firstName: "Robert",
     lastName: "Johnson",

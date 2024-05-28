@@ -3,16 +3,16 @@ import DateRangePicker from "../DateRangePIcker/DateRangePicker";
 const Header = () => {
   return (
     <div className="container-fluid py-2 px-3 shadow-sm">
-      <div className="row align-items-center">
-        <div className="col">
+      <div className="row align-items-center gap-3 gap-md-0">
+        <div className="col-12 col-md">
           <h6 className="m-0 text-secondary-emphasis">
             Rudra Transporter - Transporter
           </h6>
         </div>
-        <div className="col-2">
+        <div className="col-12 col-md-2">
           <DateRangePicker />
         </div>
-        <div className="col-2">
+        <div className="col-12 col-md-2">
           <div className="input-group">
             <span className="input-group-text" id="basic-addon1">
               🇦🇪
@@ -30,7 +30,7 @@ const Header = () => {
             </select>
           </div>
         </div>
-        <div className="col-2">
+        <div className="col-12 col-md-2">
           <div className="input-group">
             <span className="input-group-text" id="basic-addon1">
               <i className="bi bi-globe"></i>
