@@ -85,6 +85,7 @@ function App() {
     setUserList((prev) => [...prev, newData]);
     toast.success("User added successfully" || defaultMessage);
     methods.reset();
+    setAddUserDialogOpen(false);
   };
 
   return (

@@ -160,7 +160,7 @@ const Dialog = ({
               {formField.label}
             </label>
             <div className="row">
-              <div className="col-3 pe-0">
+              <div className="col-4 col-md-3 pe-0">
                 <select
                   id={formField.id}
                   className={`form-select rounded-end-0 text-capitalize ${
