@@ -16,7 +16,7 @@ import { userListColumns } from "./utils/reactTable/columns";
 
 const data = [
   {
-    status: "Active",
+    status: "active",
     userid: "U12345",
     firstName: "John",
     lastName: "Doe",
@@ -24,7 +24,7 @@ const data = [
     email: "johndoe@example.com",
   },
   {
-    status: "Blocked",
+    status: "blocked",
     userid: "U67890",
     firstName: "Jane",
     lastName: "Smith",
@@ -32,7 +32,7 @@ const data = [
     email: "janesmith@example.com",
   },
   {
-    status: "Active",
+    status: "active",
     userid: "U54321",
     firstName: "Robert",
     lastName: "Johnson",
@@ -40,7 +40,7 @@ const data = [
     email: "robertjohnson@example.com",
   },
   {
-    status: "Suspended",
+    status: "pending",
     userid: "U98765",
     firstName: "Emily",
     lastName: "Davis",
@@ -48,12 +48,20 @@ const data = [
     email: "emilydavis@example.com",
   },
   {
-    status: "Active",
+    status: "active",
     userid: "U45678",
     firstName: "Michael",
     lastName: "Brown",
     userRole: "role1",
     email: "michaelbrown@example.com",
+  },
+  {
+    status: "active",
+    userid: "U45678",
+    firstName: "Brown",
+    lastName: "Davis",
+    userRole: "role1",
+    email: "Davis@example.com",
   },
 ];
 
@@ -81,7 +89,7 @@ function App() {
         <h4 className="m-0">Settings</h4>
 
         <div className="d-flex justify-content-between align-items-center mt-3">
-          <h6 className="m-0 text-secondary">Users list</h6>
+          <h6 className="m-0 text-secondary text-capitalize">users list</h6>
           <button
             type="button"
             className="btn btn-success text-capitalize fw-medium"
