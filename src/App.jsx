@@ -6,6 +6,7 @@ import "react-datepicker/dist/react-datepicker.css";
 import "./App.css";
 import Header from "./components/Header/Header";
 import Dialog from "./components/Dialog/Dialog";
+import { v4 as uuidv4 } from "uuid";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -64,12 +65,12 @@ function App() {
     defaultValues: {
       countryCode: "91",
       status: "pending",
-      userid: `u${Math.floor(Math.random() * 500)}`,
     },
   });
 
   const onSubmit = (data) => {
-    setUserList((prev) => [...prev, data]);
+    const newData = { ...data, userid: uuidv4() };
+    setUserList((prev) => [...prev, newData]);
     methods.reset();
   };
 

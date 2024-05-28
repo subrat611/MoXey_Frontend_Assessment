@@ -21,7 +21,7 @@ export const userListColumns = [
       const { row } = props;
       return <p>{row.original?.userid}</p>;
     },
-    width: "columnWidthmd",
+    width: "columnWidthSm",
   },
   {
     accessorKey: "email",
