@@ -1,6 +1,7 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 
 import "bootstrap/dist/js/bootstrap.bundle.min";
+import "react-datepicker/dist/react-datepicker.css";
 
 import "./App.css";
 import Header from "./components/Header/Header";

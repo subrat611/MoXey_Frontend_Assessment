@@ -1,3 +1,5 @@
+import DateRangePicker from "../DateRangePIcker/DateRangePicker";
+
 const Header = () => {
   return (
     <div className="container-fluid py-2 px-3 shadow-sm">
@@ -5,7 +7,9 @@ const Header = () => {
         <div className="col">
           <h6 className="m-0">Rudra Transporter - Transporter</h6>
         </div>
-        <div className="col-2"></div>
+        <div className="col-2">
+          <DateRangePicker />
+        </div>
         <div className="col-2">
           <div className="input-group">
             <span className="input-group-text" id="basic-addon1">
