@@ -63,7 +63,7 @@ function App() {
   const methods = useForm({
     resolver: yupResolver(addNewUserFormSchema),
     defaultValues: {
-      countryCode: "91",
+      countryCode: "",
       status: "pending",
     },
   });

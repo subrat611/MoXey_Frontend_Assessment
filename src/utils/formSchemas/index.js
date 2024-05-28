@@ -12,6 +12,7 @@ export const addNewUserFormSchema = yup.object({
     .number()
     .required("required field")
     .typeError("required field"),
+  countryCode: yup.string().required("enter mobile number"),
   mobileNumber: yup.string().required("enter mobile number"),
   country: yup.string().required("required field"),
   userRole: yup.string().required("required field"),

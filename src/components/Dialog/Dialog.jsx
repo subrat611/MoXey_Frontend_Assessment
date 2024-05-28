@@ -153,9 +153,12 @@ const Dialog = ({
               <div className="col-3 pe-0">
                 <select
                   id={formField.id}
-                  className="form-select rounded-end-0 text-capitalize"
+                  className={`form-select rounded-end-0 text-capitalize ${
+                    errors[formField.id] ? "is-invalid" : ""
+                  }`}
                   {...register("countryCode")}
                 >
+                  <option value="" selected></option>
                   <option value="966">+966</option>
                   <option value="971">+971</option>
                   <option value="91">+91</option>
@@ -173,9 +176,10 @@ const Dialog = ({
                 />
               </div>
             </div>
-            {errors[formField.id] && (
+            {(errors[formField.id] || errors["countryCode"]) && (
               <p className="invalid-feedback text-capitalize d-block">
-                {errors[formField.id].message}
+                {errors[formField.id]?.message ||
+                  errors["countryCode"]?.message}
               </p>
             )}
           </div>
