@@ -44,7 +44,7 @@ const Dialog = ({
           <div className="mb-3">
             <label
               htmlFor={formField.id}
-              className={`form-label text-uppercase ${
+              className={`form-label text-secondary text-uppercase ${
                 formField.isRequired && "required_asterisk"
               }`}
             >
@@ -85,7 +85,7 @@ const Dialog = ({
                     <div className="col-12 col-md p-0" key={i}>
                       <label
                         htmlFor={field.id}
-                        className={`form-label text-uppercase ${
+                        className={`form-label text-secondary text-uppercase ${
                           field.isRequired && "required_asterisk"
                         }`}
                       >
@@ -114,7 +114,7 @@ const Dialog = ({
               <div className="mb-3">
                 <label
                   htmlFor={formField.id}
-                  className={`form-label text-uppercase ${
+                  className={`form-label text-secondary text-uppercase ${
                     formField.isRequired && "required_asterisk"
                   }`}
                 >
@@ -143,7 +143,7 @@ const Dialog = ({
           <div className="mb-3">
             <label
               htmlFor={formField.id}
-              className={`form-label text-uppercase ${
+              className={`form-label text-secondary text-uppercase ${
                 formField.isRequired && "required_asterisk"
               }`}
             >
@@ -207,7 +207,7 @@ const Dialog = ({
                 <div className="mb-3">
                   <label
                     htmlFor="country"
-                    className="form-label text-uppercase required_asterisk"
+                    className="form-label text-secondary text-uppercase required_asterisk"
                   >
                     country
                   </label>
