@@ -1,8 +1,26 @@
-# React + Vite
+## MoXey Frontend Assessment v1.1
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## 🌟 Features
 
-Currently, two official plugins are available:
+- Users Listing
+- Filter users by `status`, `email`, `first name`, `last name`
+- Add a new user
+- Fetch a list of countries from a public API to populate the country selection dropdown in the add user form.
+- Add new user form validation using react-hook-form
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🔨 Technologies
+
+- `React.js`
+- `CSS/SCSS`
+- `Bootstrap5`
+- `Axios`
+- `React Query`
+- `React Hook Form`
+
+## 📷️ Screenshot
+
+![image](https://github.com/subrat611/moxey-assessment/assets/77252075/06726e86-cfda-48f9-b3ad-1405a815f447)
+
+![image](https://github.com/subrat611/moxey-assessment/assets/77252075/e9120510-d3d9-468a-a896-aab26bf55020)
+
+![image](https://github.com/subrat611/moxey-assessment/assets/77252075/1541bcba-d668-439e-9ae2-7e12fe1b3576)
